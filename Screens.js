@@ -5,9 +5,11 @@ const Tab = createBottomTabNavigator()
 import HomeScreen from "./screens/Home"
 import SettingScreen from "./screens/Settings"
 import ProfileScreen from "./screens/Profile"
+import ExpenseScreen from "./screens/Expense"
+
 
 // icons
-import { Home, HomeFilled, Profile, Settings, SettingsFilled, ProfileFilled } from "./Icons"
+import { Home, HomeFilled, Profile, Settings, SettingsFilled, ProfileFilled, Expense, ExpenseFilled } from "./Icons"
 
 function Screens() {
     return (
@@ -17,6 +19,7 @@ function Screens() {
                 headerShown: false
             }}
         >
+            {/* home screen */}
             <Tab.Screen
                 name="home"
                 component={HomeScreen}
@@ -27,6 +30,20 @@ function Screens() {
                     }
                 }}
             />
+            {/* expense screen */}
+
+            <Tab.Screen
+                name="expense"
+                component={ExpenseScreen}
+                options={{
+                    tabBarIcon: ({ focused, color, size }) => {
+                        if (focused) return <ExpenseFilled size={size} fill="#000" />
+                        return <Expense size={size} fill={color} />
+                    }
+                }}
+            />
+            {/* setting screen */}
+
             <Tab.Screen
                 name="settings"
                 component={SettingScreen}
@@ -38,6 +55,9 @@ function Screens() {
                 }}
 
             />
+
+            {/* profile screen */}
+
             <Tab.Screen
                 name="profile"
                 component={ProfileScreen}
@@ -48,6 +68,8 @@ function Screens() {
                     }
                 }}
             />
+
+
         </Tab.Navigator>
     )
 }
