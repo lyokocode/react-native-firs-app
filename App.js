@@ -1,15 +1,12 @@
-import { NavigationContainer } from '@react-navigation/native';
-import Screens from './Screens';
 import { SafeAreaView } from 'react-native';
 import GlobalStyles from './GlobalStyles';
+import { Login } from './screens';
 
 
 export default function App() {
   return (
     <SafeAreaView style={GlobalStyles.androidSafeArea}>
-      <NavigationContainer>
-        <Screens />
-      </NavigationContainer>
+      <Login />
     </SafeAreaView>
   );
 }
